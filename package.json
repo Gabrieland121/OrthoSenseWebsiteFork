@@ -1,0 +1,19 @@
+{
+  "name": "orthosense-annotation-demo",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -n client,server -c cyan,green \"npm run dev --workspace client\" \"npm run dev --workspace server\"",
+    "build": "npm run build --workspace client",
+    "start": "npm run start --workspace server",
+    "convert-dicom": "node scripts/convert-dicom.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "dicom-parser": "^1.8.7",
+    "pngjs": "^6.0.0"
+  }
+}
